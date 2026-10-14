@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>AI Gratis Indonesia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">✳</div><div><strong>AI Gratis</strong><span>INDONESIA</span></div></div>
+      <button class="new-chat" id="newChat">＋ <span>Chat baru</span></button>
+      <nav class="nav">
+        <button class="nav-item active" data-view="chat">◉ <span>Chat AI</span></button>
+        <button class="nav-item" data-view="prompt">✧ <span>Pembuat Prompt</span></button>
+        <button class="nav-item" data-view="image">▧ <span>Gambar AI</span></button>
+      </nav>
+      <div class="side-label">RIWAYAT CHAT</div>
+      <div class="history" id="history"><p class="muted small">Percakapanmu akan muncul di sini.</p></div>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div><span>Mode demo / konfigurasi gratis</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+        <div class="mobile-brand">✳ AI Gratis Indonesia</div>
+        <div class="top-right"><span class="free-pill"><i></i> TANPA API BERBAYAR</span><button class="icon-btn" id="themeBtn" title="Ganti tema">◐</button></div>
+      </header>
+
+      <section class="workspace">
+        <div class="welcome" id="welcome">
+          <div class="sparkle">✳</div>
+          <p class="eyebrow">ASISTEN AI UNTUK SEMUA</p>
+          <h1>Halo, mau bikin<br><em>apa hari ini?</em></h1>
+          <p class="intro">Tanya sesuatu, susun ide, atau buat prompt kreatif. Mulai gratis—hubungkan penyedia AI gratis untuk mengaktifkan jawaban otomatis.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Buatkan rencana belajar AI untuk pemula selama 7 hari."><span>⌘</span><b>Belajar hal baru</b><small>Buat rencana belajar AI</small></button>
+            <button class="suggestion" data-prompt="Buatkan 5 ide konten video pendek yang menarik untuk pemula."><span>▤</span><b>Ide konten viral</b><small>Cari ide video pendek</small></button>
+            <button class="suggestion" data-prompt="Buat prompt gambar sinematik rumah tradisional Indonesia saat senja."><span>✧</span><b>Buat prompt gambar</b><small>Ubah ide jadi prompt</small></button>
+          </div>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+
+        <section class="tool-view hidden" id="promptView">
+          <div class="tool-heading"><span class="tool-icon">✧</span><div><p class="eyebrow">STUDIO KREATIF</p><h2>Pembuat Prompt</h2><p>Susun prompt terarah untuk gambar, video, atau konten.</p></div></div>
+          <label for="promptSubject">Apa yang ingin kamu buat?</label>
+          <textarea id="promptSubject" rows="3" placeholder="Contoh: wanita memasarkan parfum di studio mewah..."></textarea>
+          <div class="form-grid"><div><label for="promptType">Jenis</label><select id="promptType"><option>Gambar AI</option><option>Video AI</option><option>Konten media sosial</option><option>Foto produk</option></select></div><div><label for="promptStyle">Gaya</label><select id="promptStyle"><option>Sinematik realistis</option><option>Fotografi profesional</option><option>Anime</option><option>Minimalis modern</option><option>Dokumenter</option></select></div></div>
+          <button class="primary" id="makePrompt">✧ Buat prompt</button>
+          <div class="result-box hidden" id="promptResult"><div class="result-head"><b>Prompt kamu</b><button class="text-btn" id="copyPrompt">Salin</button></div><p id="promptOutput"></p></div>
+        </section>
+
+        <section class="tool-view hidden" id="imageView">
+          <div class="tool-heading"><span class="tool-icon">▧</span><div><p class="eyebrow">STUDIO VISUAL</p><h2>Gambar AI</h2><p>Siapkan prompt gambar dan lanjutkan ke penyedia gambar yang kamu pilih.</p></div></div>
+          <div class="notice"><b>Belum terhubung ke generator gambar</b><p>Halaman ini tidak berpura-pura membuat gambar. Isi prompt di bawah, lalu salin ke layanan gambar yang menawarkan akses gratis. Kuota dan syarat mengikuti layanan tersebut.</p></div>
+          <label for="imagePrompt">Deskripsi gambar</label>
+          <textarea id="imagePrompt" rows="4" placeholder="Contoh: rumah kayu tradisional di tepi sawah, cahaya pagi, fotografi realistis..."></textarea>
+          <button class="primary" id="prepareImage">Buat prompt gambar</button>
+          <div class="result-box hidden" id="imageResult"><div class="result-head"><b>Prompt siap disalin</b><button class="text-btn" id="copyImage">Salin</button></div><p id="imageOutput"></p></div>
+          <p class="small muted">Catatan: fitur generator gambar otomatis memerlukan integrasi layanan gambar yang mendukung kuota gratis.</p>
+        </section>
+
+        <div class="composer-wrap" id="composerWrap">
+          <form class="composer" id="chatForm">
+            <textarea id="chatInput" rows="1" placeholder="Tanyakan apa saja..." aria-label="Pesan untuk AI"></textarea>
+            <div class="composer-footer"><span class="composer-note">AI bisa keliru. Periksa informasi penting.</span><button class="send-btn" type="submit" aria-label="Kirim pesan">↑</button></div>
+          </form>
+          <div class="below-composer">AI Gratis Indonesia <span>·</span> Tidak perlu API berbayar untuk mode demo</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
